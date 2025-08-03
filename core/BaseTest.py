@@ -1,7 +1,6 @@
 # из которого будут наследовать все тесты-это родительский
 import pytest
 from selenium import webdriver
-import time
 
 @pytest.fixture(scope='session')
 def browser(): # отвечает за работу браузеров: открытие и закрытие
