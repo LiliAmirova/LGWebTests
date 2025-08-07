@@ -12,12 +12,8 @@ class LoginPageLocators:
 
     QA_GET = (By.XPATH, '//*[@data-l="t, get_qr"]')
 
-    # Какой из вариантов  ниже лучше использовать ?
-    NE_POLUCHAYETSYA_VOYTI_1 = (By.XPATH, '//*[@class="lp"]')
-    NE_POLUCHAYETSYA_VOYTI_2 = (By.XPATH, '//div[@class="recovery-link"]/a[@data-l="t,register"]')
+    NE_POLUCHAYETSYA_VOYTI = (By.XPATH, '//*[@class="lp"]')
 
-    # Какой из вариантов  ниже лучше использовать ?
-    REGISTRATION_BUTTON_1 = (By.XPATH, '//*[@class="button-pro __sec mb-3x __wide"]' )
     REGISTRATION_BUTTON_2 = (By.XPATH, '//div[@class="external-oauth-login-footer"]/a[@data-l="t,register"]')
 
     VK_ENTRANCE = (By.XPATH, '//*[@data-l="t,vkc"]')
