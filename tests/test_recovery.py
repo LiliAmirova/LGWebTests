@@ -22,7 +22,6 @@ def test_go_to_recovery_after_many_fails(browser):
 
     LoginPage.click_recovery()
 
-    RecoveryPageHelper(browser) # Проверка, что действительно перешли на нужную страницу и снужными элементами
-
+    RecoveryPageHelper(browser)  # Проверка, что действительно перешли на нужную страницу и снужными элементами
 
 

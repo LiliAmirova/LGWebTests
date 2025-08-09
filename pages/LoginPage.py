@@ -91,4 +91,3 @@ class LoginPageHelper(BasePage):
         self.find_element(LoginPageLocators.PROFILE_RECOVERY_BUTTON).click()
 
 
-

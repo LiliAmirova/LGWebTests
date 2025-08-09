@@ -22,4 +22,3 @@ class RecoveryPageHelper(BasePage):
         self.find_element(RecoveryPageLocators.QR_CODE)
         self.find_element(RecoveryPageLocators.SUPPORT_BUTTON)
 
-
