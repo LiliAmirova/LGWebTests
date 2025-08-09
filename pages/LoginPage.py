@@ -12,21 +12,15 @@ class LoginPageLocators:
 
     LOGIN_BUTTON = (By.XPATH, '//*[@data-l="t,sign_in"]')
 
-    QA_GET = (By.XPATH, '//*[@data-l="t,get_qr"]')
+    QA_GET = (By.XPATH, '//*[@data-l="t, get_qr"]')
 
-    # Какой из вариантов  ниже лучше использовать ?
-    NE_POLUCHAYETSYA_VOYTI_1 = (By.XPATH, '//*[@class="lp"]')
-    NE_POLUCHAYETSYA_VOYTI_2 = (By.XPATH, '//div[@class="recovery-link"]/a[@data-l="t,register"]')
+    NE_POLUCHAYETSYA_VOYTI = (By.XPATH, '//*[@class="lp"]')
 
-    # Какой из вариантов  ниже лучше использовать ?
-    REGISTRATION_BUTTON_1 = (By.XPATH, '//*[@class="button-pro __sec mb-3x __wide"]' )
-    REGISTRATION_BUTTON_2 = (By.XPATH, '//div[@class="external-oauth-login-footer"]/a[@data-l="t,register"]')
+    REGISTRATION_BUTTON = (By.XPATH, '//div[@class="external-oauth-login-footer"]/a[@data-l="t,register"]')
 
     VK_ENTRANCE = (By.XPATH, '//*[@data-l="t,vkc"]')
     MAIL_ENTRANCE = (By.XPATH, '//*[@data-l="t,mailru"]')
     YANDEX_ENTRANCE = (By.XPATH, '//*[@data-l="t,yandex"]')
-
-    ERROR_TEXT = (By.XPATH, '//*[@class="input-e login_error"]')
 
 class LoginPageHelper(BasePage):
     def __init__(self, driver):
@@ -44,9 +38,9 @@ class LoginPageHelper(BasePage):
 
         self.find_element(LoginPageLocators.QA_GET)
 
-        self.find_element(LoginPageLocators.NE_POLUCHAYETSYA_VOYTI_1)
+        self.find_element(LoginPageLocators.NE_POLUCHAYETSYA_VOYTI)
 
-        self.find_element(LoginPageLocators.REGISTRATION_BUTTON_1)
+        self.find_element(LoginPageLocators.REGISTRATION_BUTTON)
 
         self.find_element(LoginPageLocators.VK_ENTRANCE)
         self.find_element(LoginPageLocators.MAIL_ENTRANCE)
