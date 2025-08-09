@@ -11,3 +11,5 @@ class BasePage:
 
     def get_url(self, url): #перехода по оперделенной url адресу, чтобы открывать нужные старницы
         return self.driver.get(url)
+
+
