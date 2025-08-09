@@ -2,6 +2,7 @@ from pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
 import random
 import string
+import allure
 
 class LoginPageLocators:
     ENTRANCE_PANEL = (By.XPATH, '//*[@data-l="t,login_tab"]')
@@ -46,10 +47,14 @@ class LoginPageHelper(BasePage):
         self.find_element(LoginPageLocators.MAIL_ENTRANCE)
         self.find_element(LoginPageLocators.YANDEX_ENTRANCE)
 
+    @allure.step('Нажимаем на кнопку "Войти"')
     def click_login(self):
+        self.attach_screenshot()
         self.find_element(LoginPageLocators.LOGIN_BUTTON).click()
 
+    @allure.step('Получаем тест ошибки')
     def get_error_text(self):
+        self.attach_screenshot()
         return self.find_element(LoginPageLocators.ERROR_TEXT).text
 
     def random_text(self):
@@ -57,7 +62,9 @@ class LoginPageHelper(BasePage):
         random_text = ''.join(random.choices(string.ascii_letters + string.digits, k=10))
         return random_text
 
+    @allure.step('Ввод произвольного текста в поле')
     def input_random_text_login_field(self):
         random_text = self.random_text()
+        self.attach_screenshot()
         self.find_element(LoginPageLocators.LOGIN_FIELD).send_keys(random_text)
 
