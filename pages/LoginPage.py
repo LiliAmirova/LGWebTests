@@ -13,7 +13,7 @@ class LoginPageLocators:
 
     LOGIN_BUTTON = (By.XPATH, '//*[@data-l="t,sign_in"]')
 
-    QA_GET = (By.XPATH, '//*[@data-l="t, get_qr"]')
+    QA_GET = (By.XPATH, '//*[@data-l="t,get_qr"]')
 
     NE_POLUCHAYETSYA_VOYTI = (By.XPATH, '//*[@class="lp"]')
 
@@ -22,6 +22,10 @@ class LoginPageLocators:
     VK_ENTRANCE = (By.XPATH, '//*[@data-l="t,vkc"]')
     MAIL_ENTRANCE = (By.XPATH, '//*[@data-l="t,mailru"]')
     YANDEX_ENTRANCE = (By.XPATH, '//*[@data-l="t,yandex"]')
+    ERROR_TEXT = (By.XPATH, '//*[@class="input-e login_error"]')
+    GO_BACK_BUTTON = (By.XPATH, '//*[@data-l= = "t,cancel"]')
+    SUUPORT_BUTTON = (By.XPATH, '//*[@class="external-oauth-login_title-tx"]')
+    PROFILE_RECOVERY_BUTTON = (By.NAME, 'st.go_to_recovery')
 
 class LoginPageHelper(BasePage):
     def __init__(self, driver):
@@ -29,6 +33,9 @@ class LoginPageHelper(BasePage):
         self.check_page()
 
     def check_page(self): # функция, которая проверяет страницу на наличие и видимость элементов по локаторам, которые отображаются и доступны сразу
+        with allure.step('Проверяем корректность загрузки страницы'):
+            self.attach_screenshot()
+
         self.find_element(LoginPageLocators.ENTRANCE_PANEL)
         self.find_element(LoginPageLocators.QR_CODE_PANEL)
 
@@ -67,4 +74,20 @@ class LoginPageHelper(BasePage):
         random_text = self.random_text()
         self.attach_screenshot()
         self.find_element(LoginPageLocators.LOGIN_FIELD).send_keys(random_text)
+
+    @allure.step('Заполняем поле логин')
+    def type_login(self, login):
+        self.find_element(LoginPageLocators.LOGIN_FIELD).send_keys(login)
+        self.attach_screenshot()
+
+    @allure.step('Заполняем поле пароль')
+    def type_password(self, password):
+        self.find_element(LoginPageLocators.PASSWORD_FIELD).send_keys(password)
+        self.attach_screenshot()
+
+    @allure.step('Переходим к восстановлению')
+    def click_recovery(self):
+        self.attach_screenshot()
+        self.find_element(LoginPageLocators.PROFILE_RECOVERY_BUTTON).click()
+
 
