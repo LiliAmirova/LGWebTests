@@ -16,3 +16,5 @@ class BasePage:
 
     def attach_screenshot(self): # прикрепление скриншота
         allure.attach(self.driver.get_screenshot_as_png(), "скриншот", allure.attachment_type.PNG)
+
+
