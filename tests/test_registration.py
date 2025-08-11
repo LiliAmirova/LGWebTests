@@ -12,8 +12,7 @@ BASE_URL = 'https://ok.ru/'
 def test_registration_random_country(browser):
     BasePage(browser).get_url(BASE_URL)     #открыть страницу логина
     LoginPage = LoginPageHelper(browser)
-    with allure.step('Нажимаем на кнопку Зарегистрироваться'):
-        LoginPage.click_registration()
+    LoginPage.click_registration()
     RegistrationPage = RegistrationPageHelper(browser)
     Selected_country_code = RegistrationPage.select_random_county()
     Actual_country_code = RegistrationPage.get_phone_field_value()
