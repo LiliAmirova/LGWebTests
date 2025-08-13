@@ -3,6 +3,8 @@ from selenium.webdriver.support.wait import WebDriverWait # ожидание п�
 from selenium.webdriver.support import expected_conditions
 import allure
 
+
+
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
@@ -19,5 +21,15 @@ class BasePage:
 
     def attach_screenshot(self): # прикрепление скриншота
         allure.attach(self.driver.get_screenshot_as_png(), "скриншот", allure.attachment_type.PNG)
+
+    def attach_element_screenshot(self, element, name):
+        allure.attach(
+            element.screenshot_as_png,
+            name=name,
+            attachment_type=allure.attachment_type.PNG
+        )
+
+
+
 
 
